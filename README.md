@@ -43,6 +43,7 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 |email|varchar|null: false|
+|group_id|integer|null: true|
 
 ### Association
 - has_many :groups_users
