@@ -27,6 +27,7 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
+|body|text|null: true|
 |image|string|null: true|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
@@ -40,10 +41,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false|
-|user_name|varchar|null: false|
+|name|string|null: false|
 |email|varchar|null: false|
-|group_id|integer|null: true, foreign_key: true|
 
 ### Association
 - has_many :groups_users
@@ -55,9 +54,8 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|group_id|integer|null: false|
-|group_name|varchar|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|name|string|null: false|
+|user_id|integer|null: false|
 
 ### Association
 - has_many :groups_users
