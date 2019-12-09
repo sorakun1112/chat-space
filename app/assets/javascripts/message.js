@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(data){
     var content = data.content ? `${ data.content }` : "";
     var img = data.image ? `<img src= ${ data.image }>` : "";
-    var html = `<div class="message" data-id="${ data.id }">
+    var html = `<div class="message" data-message-id="${ data.id }">
                   <div class="upper-message">
                     <div class="upper-message__user-name">
                         ${ data.user_name }
@@ -22,7 +22,6 @@ $(function(){
                   </div>`
     return html;
   }
-
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -47,4 +46,29 @@ $(function(){
       $('.form__submit').prop('disabled',false);
     })
   })
+
+
+  if (window.location.href.match(/\/groups\/\d+\/messages/)){
+    var reloadMessages = function() {
+      var last_message_id = $('.message:last').data("message-id")
+      $.ajax({
+        url: "api/messages",
+        type: "GET",
+        dataType: "json",
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        var insertHTML = '';
+        messages.forEach(function(message){
+          insertHTML = buildHTML(message);
+          $('.messages').append(insertHTML);
+          $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });  
+        })
+      })
+      .fail(function(){
+        alert('エラーが発生したため更新できませんでした。');
+      });
+    };
+  };
+  setInterval(reloadMessages, 7000);
 });
