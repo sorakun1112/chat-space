@@ -1,10 +1,11 @@
 .chat {
-  width: calc(100% - 300px);
+  width: calc(100vw - 300px);
   .header {
     box-sizing: border-box;
     height: 100px;
     padding: 0 40px;
-    border: solid 1px #eee;
+    border-bottom: solid 1px #eee;
+
     .left-header {
       float: left;
       &__title {
@@ -16,7 +17,6 @@
         color: #999;
         display: flex;
         font-size: 12px;
-        margin-top: 15px;
         .member {
           display: inline-block;
           padding-right: 5px;
@@ -35,10 +35,12 @@
   }
 
   .messages {
+    overflow: scroll;
     background-color: #FAFAFA;
     box-sizing: border-box;
     padding: 46px 40px 0;
-    height: calc(100% - 100px - 90px);
+    height: calc(100vh - 100px - 90px);
+    width: 100%;
     .message {
       .upper-message {
         display: flex;
