@@ -46,5 +46,5 @@ $(function(){
       alert('エラーが発生したためメッセージは送信できませんでした。');
       $('.form__submit').prop('disabled',false);
     })
-  })  
+  })
 });
