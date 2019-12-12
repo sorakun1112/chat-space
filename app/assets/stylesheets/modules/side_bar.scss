@@ -17,6 +17,7 @@
       &__user-name {
         display: inline-block;
         font-size: $side_header_font;
+        height: 100px;
       }
 
       &__menu {
@@ -24,6 +25,7 @@
         float: right;
         font-size: $side_header_font;
         color: $white;
+        height: 100px;
         
         &__new-group {
           display: inline-block;
